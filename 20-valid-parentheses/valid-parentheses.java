@@ -26,7 +26,7 @@ class Solution {
                 checkResult.pop();
             } else if (c == '}' && checkResult.lastElement() == '{') {
                 checkResult.pop();
-            } else if(c == ')' || c == ']' || c == '}') {
+            } else if (c == ')' || c == ']' || c == '}') {
                 checkResult.push(c);
             }
 
