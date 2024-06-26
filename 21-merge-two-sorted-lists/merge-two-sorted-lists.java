@@ -21,12 +21,7 @@ class Solution {
             return list1;
         }
 
-        if (list1 == null && list2 == null) {
-            return null;
-        }
-
         while (list1 != null && list2 != null) {
-            System.out.println("INSIDE check");
             if (list1.val > list2.val) {
                 cur.next = list2;
                 list2 = list2.next;
