@@ -33,8 +33,8 @@ class Solution {
             
             int total = v1 + v2 + carry; 
             carry = total / 10;
-            total = total % 10;
-            cursor.next = new ListNode(total);
+            int actual_node_val = total % 10;
+            cursor.next = new ListNode(actual_node_val);
 
             // Update pointers
             cursor = cursor.next;
