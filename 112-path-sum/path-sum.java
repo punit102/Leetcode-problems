@@ -15,6 +15,8 @@
  */
 class Solution {
     public boolean hasPathSum(TreeNode root, int targetSum) {
+        // if(root != null) System.out.println("Check your current Node:" + root.val);
+       
         if (root == null)
             return false;
 
@@ -22,7 +24,6 @@ class Solution {
 
         if (root != null) {
             sum = targetSum - root.val;
-            System.out.println("SUM: " + sum);
         }
 
         if (root.right == null && root.left == null && sum == 0)
