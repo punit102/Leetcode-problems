@@ -1,3 +1,5 @@
+// Note: Second HashMao which is TreeMap - Adding 1 and substracting 1 is very import
+
 class StockPrice {
 
     private HashMap<Integer, Integer> mapOfTimeAndPrice;
