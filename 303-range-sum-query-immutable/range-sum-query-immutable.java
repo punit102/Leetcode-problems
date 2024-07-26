@@ -1,3 +1,5 @@
+// Note: Please use Pre Sum Algorithm pattern
+
 class NumArray {
 
     int[] given;
