@@ -19,6 +19,6 @@ class Solution {
             else return cur;
         }
         
-        return cur;
+        return null;
     }
 }
