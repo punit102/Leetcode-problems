@@ -15,10 +15,6 @@ class Solution {
         ListNode leftP = dummyNode;
         ListNode rightP = head;
 
-        // for (int i = 0; i < n; i++) {
-        // rightP = rightP.next;
-        // }
-
         while (n != 0) {
             rightP = rightP.next;
             n--;
@@ -27,7 +23,6 @@ class Solution {
         while (rightP != null) {
             leftP = leftP.next;
             rightP = rightP.next;
-
         }
 
         leftP.next = leftP.next.next;
