@@ -3,14 +3,14 @@ class Solution {
         int maxSum = Integer.MIN_VALUE;
         int curIndexSum = 0;
 
-        for(int i = 0; i < nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
             curIndexSum = curIndexSum + nums[i];
 
-            if(curIndexSum > maxSum){
+            if (curIndexSum > maxSum) {
                 maxSum = curIndexSum;
             }
 
-            if(curIndexSum < 0){
+            if (curIndexSum < 0) {
                 curIndexSum = 0;
             }
         }
