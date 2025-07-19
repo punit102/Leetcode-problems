@@ -1,3 +1,6 @@
+
+import org.w3c.dom.Node;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -16,31 +19,44 @@
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
 
-        List<List<Integer>> result = new ArrayList<List<Integer>>();
-        Queue<TreeNode> queue = new LinkedList<>();
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null)
+            return result;
 
-        if(root == null) return result;
+        // System.out.println("Hello Program prequisites:");
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
 
         queue.add(root);
 
-        while(true){
+        while (true) {
+            ArrayList<Integer> tempArray = new ArrayList<>();
             int size = queue.size();
-            List<Integer> tempRes = new ArrayList<Integer>();
 
-            if(size == 0) return result;
+            if (size == 0)
+                return result;
 
-            while(size > 0) {
-                TreeNode element = queue.poll();
-                tempRes.add(element.val);
+            while (size > 0) {
+                TreeNode temp = queue.peek();
+                tempArray.add(temp.val);
+                // System.out.println("Print element here: - " + temp.val);
+                queue.poll();
 
-                if(element.left != null) queue.add(element.left);
-                if(element.right != null) queue.add(element.right);
+                if (temp.left != null) {
+                    queue.add(temp.left);
+                }
+
+                if (temp.right != null) {
+                    queue.add(temp.right);
+                }
+
                 size--;
             }
 
-            result.add(tempRes);
+            result.add(tempArray);
 
         }
+
+        // return result;
 
     }
 }
