@@ -71,14 +71,15 @@ class MyLinkedList {
 
     public void addAtIndex(int index, int val) {
 
-        if(index > length) return;
+        if (index > length)
+            return;
 
-        if (index == length) { 
+        if (index == length) {
             addAtTail(val);
             return;
         }
 
-        if(index == 0){
+        if (index == 0) {
             addAtHead(val);
             return;
         }
@@ -87,7 +88,7 @@ class MyLinkedList {
         Node nextEle = head.next;
         int counter = 1;
 
-        while(counter < index){
+        while (counter < index) {
             currentEle = currentEle.next;
             nextEle = nextEle.next;
             counter++;
@@ -96,49 +97,7 @@ class MyLinkedList {
         Node newNode = new Node(val);
         length++;
         currentEle.next = newNode;
-        newNode.next =  nextEle;
-
-
-
-        // if(index > length)
-    	// 	return;
-        // if(index == 0)
-        // 	addAtHead(val);
-        // else {
-        // 	int counter = 1;
-        // 	Node temp = head;
-        // 	while(counter < index) {
-        // 		temp = temp.next;
-        // 		counter++;
-        // 	}
-        // 	Node newnew = new Node(val);
-        // 	Node next = temp.next;
-        // 	temp.next = newnew;
-        // 	newnew.next = next;
-        // 	length++;
-        // }
-
-
-        // Node newElement = new Node(val);
-        // length++;
-        // if (index == 0) {
-        //     addAtHead(val);
-        // }
-        // if (index == length) {
-        //     addAtTail(val);
-        // }
-        // if (index > 0 && index < length) {
-        //     Node curr = head;
-        //     Node next = head.next;
-        //     int temp = index - 2;
-
-        //     for (int i = 0; i < temp; i++) {
-        //         curr = curr.next;
-        //         next = next.next;
-        //     }
-        //     curr.next = newElement;
-        //     newElement.next = next;
-        // }
+        newNode.next = nextEle;
 
     }
 
