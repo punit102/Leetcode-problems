@@ -25,31 +25,31 @@ class MyLinkedList {
 
     public int get(int index) {
 
-        if(index >= length)
-        	return -1;
-        int counter = 0;
-        Node temp = head;
-        while(counter < index) {
-        	counter++;
-        	temp = temp.next;
-        }
-        return temp.val;
-
-        // if (index >= length) {
-        //     return -1;
-        // }
-
-        // int result = 0;
+        // if(index >= length)
+        // 	return -1;
+        // int counter = 0;
         // Node temp = head;
-
-        // if (index == 0)
-        //     return temp.val;
-
-        // for (int i = 0; i < index; i++) {
-        //     temp = temp.next;
-        //     result = temp.val;
+        // while(counter < index) {
+        // 	counter++;
+        // 	temp = temp.next;
         // }
-        // return result;
+        // return temp.val;
+
+        if (index >= length) {
+            return -1;
+        }
+
+        int result = 0;
+        Node temp = head;
+
+        if (index == 0)
+            return temp.val;
+
+        for (int i = 0; i < index; i++) {
+            temp = temp.next;
+            result = temp.val;
+        }
+        return result;
     }
 
     public void addAtHead(int val) {
@@ -125,26 +125,7 @@ class MyLinkedList {
     }
 
     public void deleteAtIndex(int index) {
-// if(index >= length)
-//         	return;
-//         if(index == 0) {
-//         	head = head.next;
-//         	length--;
-//         }else {
-//         	int counter = 1;
-//         	Node temp = head;
-//         	while(counter < index) {
-//         		counter++;
-//         		temp = temp.next;
-//         	}
-//         	temp.next = temp.next.next;
-//         	length--;
-//         }
-
-
-
         Node currElement = head;
-        // Node nextElement = head.next;
 
         if (index >= length) {
             return;
