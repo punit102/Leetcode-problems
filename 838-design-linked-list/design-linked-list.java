@@ -25,16 +25,6 @@ class MyLinkedList {
 
     public int get(int index) {
 
-        // if(index >= length)
-        // 	return -1;
-        // int counter = 0;
-        // Node temp = head;
-        // while(counter < index) {
-        // 	counter++;
-        // 	temp = temp.next;
-        // }
-        // return temp.val;
-
         if (index >= length) {
             return -1;
         }
@@ -75,30 +65,58 @@ class MyLinkedList {
                 temp = temp.next;
             }
             temp.next = newElementNode;
-
         }
 
     }
 
     public void addAtIndex(int index, int val) {
 
-        if(index > length)
-    		return;
-        if(index == 0)
-        	addAtHead(val);
-        else {
-        	int counter = 1;
-        	Node temp = head;
-        	while(counter < index) {
-        		temp = temp.next;
-        		counter++;
-        	}
-        	Node newnew = new Node(val);
-        	Node next = temp.next;
-        	temp.next = newnew;
-        	newnew.next = next;
-        	length++;
+        if(index > length) return;
+
+        if (index == length) { 
+            addAtTail(val);
+            return;
         }
+
+        if(index == 0){
+            addAtHead(val);
+            return;
+        }
+
+        Node currentEle = head;
+        Node nextEle = head.next;
+        int counter = 1;
+
+        while(counter < index){
+            currentEle = currentEle.next;
+            nextEle = nextEle.next;
+            counter++;
+        }
+
+        Node newNode = new Node(val);
+        length++;
+        currentEle.next = newNode;
+        newNode.next =  nextEle;
+
+
+
+        // if(index > length)
+    	// 	return;
+        // if(index == 0)
+        // 	addAtHead(val);
+        // else {
+        // 	int counter = 1;
+        // 	Node temp = head;
+        // 	while(counter < index) {
+        // 		temp = temp.next;
+        // 		counter++;
+        // 	}
+        // 	Node newnew = new Node(val);
+        // 	Node next = temp.next;
+        // 	temp.next = newnew;
+        // 	newnew.next = next;
+        // 	length++;
+        // }
 
 
         // Node newElement = new Node(val);
