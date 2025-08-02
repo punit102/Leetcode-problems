@@ -12,5 +12,6 @@ class Solution {
        ListNode current = node.next;
        node.val = current.val;
        node.next = current.next;
+       return;
     }
 }
