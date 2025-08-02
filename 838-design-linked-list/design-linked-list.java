@@ -125,50 +125,50 @@ class MyLinkedList {
     }
 
     public void deleteAtIndex(int index) {
-if(index >= length)
-        	return;
-        if(index == 0) {
-        	head = head.next;
-        	length--;
-        }else {
-        	int counter = 1;
-        	Node temp = head;
-        	while(counter < index) {
-        		counter++;
-        		temp = temp.next;
-        	}
-        	temp.next = temp.next.next;
-        	length--;
+// if(index >= length)
+//         	return;
+//         if(index == 0) {
+//         	head = head.next;
+//         	length--;
+//         }else {
+//         	int counter = 1;
+//         	Node temp = head;
+//         	while(counter < index) {
+//         		counter++;
+//         		temp = temp.next;
+//         	}
+//         	temp.next = temp.next.next;
+//         	length--;
+//         }
+
+
+
+        Node currElement = head;
+        // Node nextElement = head.next;
+
+        if (index >= length) {
+            return;
         }
 
+        if (index == 0) {
+            head = currElement.next;
+            length--;
+        } else {
+            if (index == 1) {
+                Node nextElement = currElement.next;
+                currElement.next = nextElement.next;
+                length--;
+            } else {
+                Node nextElement = currElement.next;
+                for (int i = 1; i < index; i++) {
+                    currElement = currElement.next;
+                    nextElement = nextElement.next;
+                }
+                currElement.next = nextElement.next;
+                length--;
+            }
 
-
-        // Node currElement = head;
-        // // Node nextElement = head.next;
-
-        // if (index >= length) {
-        //     return;
-        // }
-
-        // if (index == 0) {
-        //     head = currElement.next;
-        //     length--;
-        // } else {
-        //     if (index == 1) {
-        //         Node nextElement = currElement.next;
-        //         currElement.next = nextElement.next;
-        //         length--;
-        //     } else {
-        //         Node nextElement = currElement.next;
-        //         for (int i = 1; i < index; i++) {
-        //             currElement = currElement.next;
-        //             nextElement = nextElement.next;
-        //         }
-        //         currElement.next = nextElement.next;
-        //         length--;
-        //     }
-
-        // }
+        }
 
     }
 }
