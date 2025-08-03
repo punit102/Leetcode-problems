@@ -1,47 +1,53 @@
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- * int val;
- * ListNode next;
- * ListNode() {}
- * ListNode(int val) { this.val = val; }
- * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode dummyNode = new ListNode(0);
-        ListNode cur = dummyNode;
+        if (list1 == null) return list2;
+        if (list2 == null) return list1;
 
-        if (list1 == null) {
-            return list2;
+        ListNode cur1 = list1;
+        ListNode cur2 = list2;
+        ListNode head, current;
+        if (cur1.val < cur2.val) {
+            head = cur1;
+            cur1 = cur1.next;
+            current = head;
+
+        } else {
+            head = list2;
+            cur2 = cur2.next;
+            current = head;
         }
 
-        if (list2 == null) {
-            return list1;
-        }
+        while (cur1 != null && cur2 != null){
+            if (cur1.val < cur2.val) {
+                current.next = cur1;
+                current = current.next;
+                cur1 = cur1.next;
 
-        while (list1 != null && list2 != null) {
-            if (list1.val > list2.val) {
-                cur.next = list2;
-                list2 = list2.next;
             } else {
-                cur.next = list1;
-                list1 = list1.next;
+                current.next = cur2;
+                current = current.next;
+                cur2 = cur2.next;
             }
-            cur = cur.next;
         }
 
-        if (list1 != null) {
-            cur.next = list1;
-            list1 = list1.next;
+        if (cur1 != null) {
+            current.next = cur1;
         }
 
-        if (list2 != null) {
-            cur.next = list2;
-            list2 = list2.next;
+        if (cur2 != null) {
+            current.next = cur2;
         }
-
-        return dummyNode.next;
+        return head;
+        
     }
 }
