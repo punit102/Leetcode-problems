@@ -22,7 +22,7 @@ class Solution {
             current = head;
 
         } else {
-            head = list2;
+            head = cur2;
             cur2 = cur2.next;
             current = head;
         }
